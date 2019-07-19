@@ -7,6 +7,8 @@ Version 1 | Min: .Net version 4.5
 
 ## Kurulum
 
+[Release](https://github.com/ErenKrt/Fivem-Server-Status/releases)
+
 İnsert 'Release/Fivem Server Status.dll' your project.
 -OR-
 Build this project and get 'Dll' file.
