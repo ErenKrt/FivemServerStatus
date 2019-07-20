@@ -63,7 +63,7 @@ namespace EpEren.Fivem.ServerStatus
                     var_i++;
                 }
 
-                return new { Server=server,Clients=clients,Players=player_list,Vars=vars_list };
+                return new { Server=server,Clients=clients,Players=player_list,Vars=vars_list,Resources=resources_list };
                 
             }
         }
