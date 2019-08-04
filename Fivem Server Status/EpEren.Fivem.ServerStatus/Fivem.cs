@@ -27,9 +27,18 @@ namespace EpEren.Fivem.ServerStatus
 
                 var veriler = veri["Data"];
 
-                var clients = new { OnlineClients = Convert.ToString(veriler["clients"]), MaxClients = Convert.ToString(veriler["sv_maxclients"]) };
+                dynamic clients = new ExpandoObject();
+                clients.OnlineClients = Convert.ToString(veriler["clients"]);
+                clients.MaxClients = Convert.ToString(veriler["sv_maxclients"]);
 
-                var server = new { Name = Convert.ToString(veriler["hostname"]), Type = Convert.ToString(veriler["gametype"]), Map = Convert.ToString(veriler["mapname"]), More = new { GameName = Convert.ToString(veriler["gamename"]), Server = Convert.ToString(veriler["server"]) } };
+                dynamic server = new ExpandoObject();
+                server.Name = Convert.ToString(veriler["hostname"]);
+                server.Type = Convert.ToString(veriler["gametype"]);
+                server.Map = Convert.ToString(veriler["mapname"]);
+                server.More = new ExpandoObject();
+                server.More.GameName = Convert.ToString(veriler["gamename"]);
+                server.More.Server = Convert.ToString(veriler["server"]);
+
 
                 object[] player_list = new object[Convert.ToInt32(veriler["clients"])];
 
@@ -44,7 +53,13 @@ namespace EpEren.Fivem.ServerStatus
                         _identifiers[j] = Convert.ToString(ide);
                     }
 
-                    player_list[i] = new { ID = Convert.ToString(player["id"]), Name = Convert.ToString(player["name"]), Ping = Convert.ToString(player["ping"]), identifiers = _identifiers };
+                    dynamic tekli = new ExpandoObject();
+                    tekli.ID = Convert.ToString(player["id"]);
+                    tekli.Name = Convert.ToString(player["name"]);
+                    tekli.Ping = Convert.ToString(player["ping"]);
+                    tekli.identifiers = _identifiers;
+
+                    player_list[i] = tekli;
                 }
 
                 object[] resources_list = new object[veriler["resources"].Count()];
@@ -59,7 +74,11 @@ namespace EpEren.Fivem.ServerStatus
                 int var_i = 0;
                 foreach (var item in vars)
                 {
-                    vars_list[var_i] = new[] { Convert.ToString(item.Key), Convert.ToString(item.Value) };
+                    dynamic tekli = new ExpandoObject();
+                    tekli.Name = Convert.ToString(item.Key);
+                    tekli.Value = Convert.ToString(item.Value);
+
+                    vars_list[var_i] = tekli;
                     var_i++;
                 }
 
@@ -68,10 +87,10 @@ namespace EpEren.Fivem.ServerStatus
                 donut.Clients = clients;
                 donut.Players = player_list;
                 donut.Vars = vars_list;
+                donut.Resources = resources_list;
 
                 return donut;
 
-                
             }
         }
 
