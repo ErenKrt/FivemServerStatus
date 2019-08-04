@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Fivem Server Status")]
+[assembly: AssemblyTitle("EpEren.Fivem.ServerStatus")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Fivem Server Status")]
+[assembly: AssemblyProduct("EpEren.Fivem.ServerStatus")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8fa0fabf-1964-47f8-9dcb-42cf0142df54")]
+[assembly: Guid("f956bb79-7ad6-4d05-b767-c960b539d552")]
 
 // Version information for an assembly consists of the following four values:
 //
