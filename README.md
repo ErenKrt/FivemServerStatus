@@ -4,8 +4,10 @@
 
 ## Bilgilendirme
 Version 1 | Min: .Net version 4.5
-
+[PHP Version](https://github.com/ErenKrt/Fivem-Server-Status-PHP)
 ## Kurulum
+
+[Release](https://github.com/ErenKrt/Fivem-Server-Status/releases)
 
 İnsert 'Release/Fivem Server Status.dll' your project.
 -OR-
