@@ -25,6 +25,7 @@ var Players = serverinfo.Players;
 var Server = serverinfo.Server;
 var Client = serverinfo.Clients;
 var Vars = serverinfo.Vars;
+var Resources = serverinfo.Resources;
 ```
 
 Geliştirci: &copy; [ErenKrt](https://www.instagram.com/ep.eren/)
