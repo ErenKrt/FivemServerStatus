@@ -20,8 +20,8 @@
    
     var ServerInfo = new Fivem("145.239.150.71:30120");
    
-	if (ServerInfo.GetStatu()) // if server is online
-    {     
+   if (ServerInfo.GetStatu()) // if server is online
+   {     
      ServerInfo.GetGameName(); //string
      ServerInfo.GetGameType(); //string
      ServerInfo.GetHostName(); //string
@@ -40,7 +40,7 @@
        for (int i = 0; i < xD.Count; i++)
        {
          var name= xD[i].key;
-	     var value= xD[i].value;
+	 var value= xD[i].value;
        }
     }
   
