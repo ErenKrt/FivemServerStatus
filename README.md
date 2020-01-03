@@ -1,31 +1,50 @@
-# C# Fivem Server Status / Library 
- - [Bilgilendirme](#bilgilendirme)
- - [Kurulum](#kurulum)
+# Fivem Server Status | Fivem Server Info | C# / Library
 
-## Bilgilendirme
-Version 1 | Min: .Net version 4.5
-[PHP Version](https://github.com/ErenKrt/Fivem-Server-Status-PHP)
-## Kurulum
+---
+- [Bilgilendirme](#bilgilendirme)
+- [Kurulum](#kurulum)
+---
 
-[Release](https://github.com/ErenKrt/Fivem-Server-Status/releases)
+# Bilgilendirme
+> Version 1 | .Net version >= 4.5
 
-İnsert 'Release/Fivem Server Status.dll' your project.
--OR-
-Build this project and get 'Dll' file.
+# Kurulum
+> Insert 'Release/*.dll' your project. -OR- Build this project and get dlls and add reference your projects.
 
-## Kullanım
+---
 
+
+## Kod Kullanımları
 ```csharp
-using EpEren.Fivem.ServerStatus;
+   using EpEren.Fivem.ServerStatus;
+   
+    var ServerInfo = new Fivem("145.239.150.71:30120");
+   
+	if (ServerInfo.GetStatu()) // if server is online
+    {     
+     ServerInfo.GetGameName(); //string
+     ServerInfo.GetGameType(); //string
+     ServerInfo.GetHostName(); //string
+     ServerInfo.GetIconVer();  //int
+     ServerInfo.GetMapName();  //string
+     ServerInfo.GetMaxPlayersCount();  //int
+     ServerInfo.GetOnlinePlayersCount();  //int
+     ServerInfo.GetPlayers(); //object list
+     ServerInfo.GetResources(); //string list
+     ServerInfo.GetServerHost();  //string
+     ServerInfo.GetStatu(); // server online(bool=true) or ofline(bool=false)
+     ServerInfo.GetUpVote(); //int
+     ServerInfo.GetVars(); //object list
 
-Fivem nf = new Fivem("YOUR SERVER İP:PORT"); // Test 91.134.243.4:30120
-dynamic serverinfo = nf.Getİnfo();
-
-var Players = serverinfo.Players;
-var Server = serverinfo.Server;
-var Client = serverinfo.Clients;
-var Vars = serverinfo.Vars;
-var Resources = serverinfo.Resources;
+     var xD = ServerInfo.GetVars();
+       for (int i = 0; i < xD.Count; i++)
+       {
+         var name= xD[i].key;
+	     var value= xD[i].value;
+       }
+    }
+  
 ```
 
+---
 Geliştirci: &copy; [ErenKrt](https://www.instagram.com/ep.eren/)
