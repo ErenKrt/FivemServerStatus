@@ -23,7 +23,7 @@ namespace EpEren.Fivem.ServerStatus
                     this.RServer = JsonConvert.DeserializeObject<Classes.RServer>(Convert.ToString(req.Get("https://servers-live.fivem.net/api/servers/single/" + Server.GetIP() + ":" + Server.GetPort())));
                     this.RServer.isOnline = true;
                 }
-                catch (Exception exp)
+                catch
                 {
                     this.RServer = new Classes.RServer();
                     this.RServer.isOnline = false;
