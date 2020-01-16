@@ -10,7 +10,7 @@
 > Version 4.0 | .Net Framework >= 4.5 | .net Core >= 2
 
 # Setup
-> Insert 'Release/*.dll' your project. 
+> Insert 'Release/*.dll' your project.
 > Build this project and get dlls and add reference your projects.
 
 ---
