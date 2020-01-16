@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Net Core", ".Net Core", "{3D240FF6-A5F0-4DE9-9A19-F80EE1F12E0D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Net Framework 4.6", ".Net Framework 4.6", "{40774F8D-68E9-4359-938B-1561A1EDC1A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpEren.Fivem.ServerStatus", "EpEren.Fivem.ServerStatus\EpEren.Fivem.ServerStatus.csproj", "{075FA492-7586-44DA-9EAB-AE2CE5909820}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpEren.Fivem.ServerStatus.NetCore", "EpEren.Fivem.ServerStatus.NetCore\EpEren.Fivem.ServerStatus.NetCore.csproj", "{4A2CADE2-1830-4299-A364-B2D137EE6E8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpEren.Fivem.ServerStatus.NetCore.Test", "Tester/EpEren.Fivem.ServerStatus.NetCore.Test\EpEren.Fivem.ServerStatus.NetCore.Test.csproj", "{B5708BB4-8B2E-4EE3-BBC6-FA96B856FF2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpEren.Fivem.ServerStatus.Test", "Tester/EpEren.Fivem.ServerStatus.Test\EpEren_Fivem_ServerStatus_Test.csproj", "{8D1511D5-E9BE-4970-A3AE-55F644974702}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{075FA492-7586-44DA-9EAB-AE2CE5909820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{075FA492-7586-44DA-9EAB-AE2CE5909820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{075FA492-7586-44DA-9EAB-AE2CE5909820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{075FA492-7586-44DA-9EAB-AE2CE5909820}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A2CADE2-1830-4299-A364-B2D137EE6E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A2CADE2-1830-4299-A364-B2D137EE6E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A2CADE2-1830-4299-A364-B2D137EE6E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A2CADE2-1830-4299-A364-B2D137EE6E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5708BB4-8B2E-4EE3-BBC6-FA96B856FF2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5708BB4-8B2E-4EE3-BBC6-FA96B856FF2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5708BB4-8B2E-4EE3-BBC6-FA96B856FF2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5708BB4-8B2E-4EE3-BBC6-FA96B856FF2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D1511D5-E9BE-4970-A3AE-55F644974702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D1511D5-E9BE-4970-A3AE-55F644974702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D1511D5-E9BE-4970-A3AE-55F644974702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D1511D5-E9BE-4970-A3AE-55F644974702}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{075FA492-7586-44DA-9EAB-AE2CE5909820} = {40774F8D-68E9-4359-938B-1561A1EDC1A7}
+		{4A2CADE2-1830-4299-A364-B2D137EE6E8A} = {3D240FF6-A5F0-4DE9-9A19-F80EE1F12E0D}
+		{B5708BB4-8B2E-4EE3-BBC6-FA96B856FF2E} = {3D240FF6-A5F0-4DE9-9A19-F80EE1F12E0D}
+		{8D1511D5-E9BE-4970-A3AE-55F644974702} = {40774F8D-68E9-4359-938B-1561A1EDC1A7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86FC57A7-AF42-498F-8CDC-858837E9EFA0}
+	EndGlobalSection
+EndGlobal
