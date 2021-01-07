@@ -17,6 +17,9 @@
 
 ### For BaseAPI
 ```csharp
+using EpEren.Fivem.ServerStatus;
+using EpEren.Fivem.ServerStatus.Classes;
+
 var Server = BaseAPI.Get("5p4q9d"); // Your server code (https://servers.fivem.net/servers)
 if (Server.IsOnline())
 	var AllData = Server.Data;
