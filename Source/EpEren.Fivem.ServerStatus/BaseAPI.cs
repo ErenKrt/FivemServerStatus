@@ -1,92 +1,75 @@
-﻿using System.Collections.Generic;
-using EpEren.Fivem.ServerStatus.Services.BaseAPI;
-using EpEren.Fivem.ServerStatus.Classes.BaseAPI;
+﻿using EpEren.Fivem.ServerStatus.Classes;
+using Newtonsoft.Json;
+using RestSharp;
+using System;
+using System.Collections.Generic;
 
-namespace EpEren.Fivem.ServerStatus.BaseAPI
+namespace EpEren.Fivem.ServerStatus
 {
-    public class Fivem
+    public static class BaseAPI
     {
+        private static RestClient _Client = new RestClient("https://servers-live.fivem.net/api/servers/single/");
 
-        RServer RServer;
-        public Fivem(string Code)
+        public static BaseServer Get(string Code)
         {
-            EpHTTP http = new EpHTTP();
-            this.RServer= http.GetServer(Code);
-            if (this.RServer != null)
+            var Req = new RestRequest(Code);
+            var Res = _Client.Get(Req);
+
+            if (Res.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                this.RServer.isOnline = true;
+                var Get = JsonConvert.DeserializeObject<BaseServer>(Res.Content);
+
+                if(Get!=null && Get.EndPoint!=null && Get.Data != null)
+                {
+                    Get.Data.BVars = new List<ValueObject>();
+
+                    if (Get.Data.Vars != null)
+                    {
+                        foreach (KeyValuePair<string, object> item in Get.Data.Vars)
+                        {
+                            Get.Data.BVars.Add(new ValueObject()
+                            {
+                                Name = item.Key.ToString(),
+                                Value = item.Value.ToString()
+                            });
+
+                        }
+                    }
+                    
+
+                    if(Get.Data.Players!=null && Get.Data.Players.Count > 0)
+                    {
+                        foreach (var Player in Get.Data.Players)
+                        {
+                            var Idens = Player.Identifiers;
+                            Player.BIdentifiers = new List<ValueObject>();
+                            foreach (var Iden in Idens)
+                            {
+                                var Exp = Iden.Split(':');
+                                Player.BIdentifiers.Add(new ValueObject()
+                                {
+                                    Name= Exp[0],
+                                    Value= Exp[1]
+                                });
+                            }
+                        }
+                    }
+
+                    Get.Data.IconUrl = "https://servers-live.fivem.net/servers/icon/"+Code+"/"+Get.Data.IconVersion+".png";
+
+                    return Get;
+                }
+                else
+                {
+                    throw new Exception("Unkown server error");
+                }
+
             }
             else
             {
-                this.RServer = new RServer()
-                {
-                    isOnline = false
-                };
-
-            }
-        }
-        public RServer GetObject()
-        {
-            return this.RServer;
-        }
-        public List<Player> GetPlayers()
-        {
-            return RServer.Data.players;
-        }
-        public List<string> GetResources()
-        {
-            return RServer.Data.resources;
-        }
-        public List<Var> GetVars()
-        {
-            var Svar = RServer.Data.vars;
-            var Vars = new List<Var>();
-            foreach (KeyValuePair<string, object> cvar in Svar)
-            {
-                Vars.Add(new Var { key = cvar.Key.ToString(), value = cvar.Value.ToString() });
+                throw new Exception("Wrong server code");
             }
 
-            return Vars;
-        }
-        public int GetMaxPlayersCount()
-        {
-            return RServer.Data.sv_maxclients;
-        }
-        public int GetOnlinePlayersCount()
-        {
-            return RServer.Data.clients;
-        }
-        public string GetGameName()
-        {
-            return RServer.Data.gamename;
-        }
-        public string GetHostName()
-        {
-            return RServer.Data.hostname;
-        }
-        public string GetGameType()
-        {
-            return RServer.Data.gametype;
-        }
-        public string GetMapName()
-        {
-            return RServer.Data.mapname;
-        }
-        public string GetServerHost()
-        {
-            return RServer.Data.server;
-        }
-        public int GetIconVer()
-        {
-            return RServer.Data.iconVersion;
-        }
-        public int GetUpVote()
-        {
-            return RServer.Data.upvotePower;
-        }
-        public bool GetStatu()
-        {
-            return RServer.isOnline;
         }
     }
 }

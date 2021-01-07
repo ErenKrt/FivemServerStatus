@@ -7,7 +7,7 @@
 ---
 
 # Information
-> Version 4.0 | .Net Framework >= 4.5 | .net Core >= 2
+> Version 3.0 | .Net Framework >= 4.7.2 | .Net Core >= 2 | .Net Core== 5
 
 # Setup
 > Insert 'Release/*.dll' your project.
@@ -15,64 +15,42 @@
 
 ---
 
-
-## Examples
-[Example Launcher](https://github.com/ErenKrt/Fivem-Server-Status/tree/master/Examples/Launcher)
-
 ### For BaseAPI
 ```csharp
-using EpEren.Fivem.ServerStatus.BaseAPI;
-var New = new Fivem("wz7652"); // Your server code (https://servers.fivem.net/servers)
-            if (New.GetStatu())
+			var Server = BaseAPI.Get("5p4q9d"); // Your server code (https://servers.fivem.net/servers)
+			if (Server.IsOnline())
             {
-                var ClassObject = New.GetObject();
-
-                New.GetGameName(); //string
-                New.GetGameType(); //string
-                New.GetHostName(); //string
-                New.GetIconVer();  //int
-                New.GetMapName();  //string
-                New.GetMaxPlayersCount();  //int
-                New.GetOnlinePlayersCount();  //int
-                New.GetPlayers(); //object list
-                New.GetResources(); //string list
-                New.GetServerHost();  //string
-                New.GetStatu(); // server online(bool=true) or ofline(bool=false)
-                New.GetUpVote(); //int
-                New.GetVars(); //object list
-                New.GetVars();
-                var xD = New.GetVars();
-                for (int i = 0; i < xD.Count; i++)
-                {
-                    var name= xD[i].key;
-					var value= xD[i].value;
-                }
+                var AllData = Server.Data;
             }
 ```
-### For ServerAPI
+
+### Timer Example
+
 ```csharp
-using EpEren.Fivem.ServerStatus.ServerAPI;
-var New = new Fivem("145.239.150.71:30120"); // Your server ip and port
-            if (New.GetStatu())
-            {
-                var ClassObject = New.GetObject();
+			public static BaseServer Server { get; set; }
 
-                New.GetGameName(); //string
-                New.GetMaxPlayersCount();  //int
-                New.GetOnlinePlayersCount();  //int
-                New.GetPlayers(); //object list
-                New.GetResources(); //string list
-                New.GetServerHost();  //string
-                New.GetStatu(); // server online(bool=true) or ofline(bool=false)
-                New.GetVars(); //object list
-                New.GetVars();
-                var xD = New.GetVars();
-                for (int i = 0; i < xD.Count; i++)
-                {
-                    var name = xD[i].key;
-                    var value = xD[i].value;
-                }
-            }
+			Timer t = new Timer(TimerRes, null, 0, 5000);
+			
+			private static void TimerRes(Object o)
+			{
+				Console.Clear();
+				Console.WriteLine("Checking...");
+			   
+				if (Server.IsOnline())
+				{
+					Console.Clear();
+					Console.WriteLine("Server ONLINE");
+					Console.WriteLine("Players: " + Server.Data.Players.Count);
+					Console.WriteLine("Players: " + Server.Data.Online); //Alternative
+				}
+				else
+				{
+					Console.Clear();
+					Console.WriteLine("Server OFFLINE");
+				}
+				
+			}
 ```
+
 ---
 Geliştirci: &copy; [ErenKrt](https://www.instagram.com/ep.eren/)
