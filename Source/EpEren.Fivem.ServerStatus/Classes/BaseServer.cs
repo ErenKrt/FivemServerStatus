@@ -21,6 +21,11 @@ namespace EpEren.Fivem.ServerStatus.Classes
                 {
                     var Url = Data.ConnectionEndpoints[0];
 
+                    if (Url.StartsWith("http") == false)
+                    {
+                        Url = "http://" + Url;
+                    }
+
                     if (_Client == null)
                     {
                         _Client = new RestClient(Url);

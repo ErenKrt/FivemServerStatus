@@ -11,11 +11,10 @@ namespace Tester
         static void Main(string[] args)
         {
 
-            Server = BaseAPI.Get("5p4q9d");
+            Server = BaseAPI.Get("qqk7ez");
             if (Server.IsOnline())
             {
                 var AllData = Server.Data;
-
             }
 
             // With Timer
