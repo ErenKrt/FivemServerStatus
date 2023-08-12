@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{50FC7E27-4EEE-4DFB-879E-CF6F2727EB33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EP.Fivem.ServerStatus", "src\EP.Fivem.ServerStatus\EP.Fivem.ServerStatus.csproj", "{159CA4A1-F59E-45EF-992C-E85F04FCF4C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "src\Examples\Tester\Tester.csproj", "{3E0720B5-A208-4713-8CCF-E88D7023913F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{159CA4A1-F59E-45EF-992C-E85F04FCF4C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{159CA4A1-F59E-45EF-992C-E85F04FCF4C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{159CA4A1-F59E-45EF-992C-E85F04FCF4C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{159CA4A1-F59E-45EF-992C-E85F04FCF4C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E0720B5-A208-4713-8CCF-E88D7023913F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E0720B5-A208-4713-8CCF-E88D7023913F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E0720B5-A208-4713-8CCF-E88D7023913F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E0720B5-A208-4713-8CCF-E88D7023913F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3E0720B5-A208-4713-8CCF-E88D7023913F} = {50FC7E27-4EEE-4DFB-879E-CF6F2727EB33}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DAD0A256-F2E3-4685-8474-4792B51CF402}
+	EndGlobalSection
+EndGlobal

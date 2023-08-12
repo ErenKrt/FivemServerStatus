@@ -4,55 +4,25 @@
 ---
 - [Information](#information)
 - [Setup](#setup)
+- [Usage](#usage)
 ---
 
 # Information
-> Version 3.0 | .Net Framework >= 4.7.2 | .Net Core >= 2 | .Net Core== 5
+> Version 4.0 | .Net >= 7
 
 # Setup
-> Insert 'Release/*.dll' your project.
-> Build this project and get dlls and add reference your projects.
+> Build this project with your spesific .Net version and get dlls and add reference your projects.
 
 ---
 
-### For BaseAPI
+### Usage
 ```csharp
-using EpEren.Fivem.ServerStatus;
-using EpEren.Fivem.ServerStatus.Classes;
+using EP.Fivem.ServerStatus;
 
-var Server = BaseAPI.Get("5p4q9d"); // Your server code (https://servers.fivem.net/servers)
-if (Server.IsOnline())
-	var AllData = Server.Data;
-}
-```
-
-### Timer Example
-
-```csharp
-public static BaseServer Server { get; set; }
-
-Timer t = new Timer(TimerRes, null, 0, 5000);
-			
-private static void TimerRes(Object o)
-{
-	Console.Clear();
-	Console.WriteLine("Checking...");
-			   
-	if (Server.IsOnline())
-	{
-		Console.Clear();
-		Console.WriteLine("Server ONLINE");
-		Console.WriteLine("Players: " + Server.Data.Players.Count);
-		Console.WriteLine("Players: " + Server.Data.Online); //Alternative
-	}
-	else
-	{
-		Console.Clear();
-		Console.WriteLine("Server OFFLINE");
-	}
-				
-}
+var serverStatus = new FivemServerStatus();
+var isOnline = await serverStatus.IsOnline("my533d");
+var server = await serverStatus.Get("my533d"); // Server object
 ```
 
 ---
-Geliştirci: &copy; [ErenKrt](https://www.instagram.com/ep.eren/)
+Developer: &copy; [ErenKrt](https://www.instagram.com/ep.eren/)
